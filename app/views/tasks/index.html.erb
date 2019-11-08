@@ -4,7 +4,13 @@
       <% row.each do |task| %>
       <div class="col">
         <div class="card">
-          <%= image_tag task.url, class: 'card-img-top' %>
+          <% if State.find_by(user_id: current_user.id, task_id: task.id) != false && State.find_by(user_id: current_user.id, task_id: task.id) != nil %>
+
+          <%= image_tag task.url, class: "card-img-top img" %>
+          <% else %>
+          <%= image_tag task.url, class: "card-img-top" %>
+          <% end %>
+
           <div class="body text-center py-2">
             <h5>  <%= task.name %> </h5>
             <%= link_to 'Listado', task_path(task.id), class: "btn btn-info" %>

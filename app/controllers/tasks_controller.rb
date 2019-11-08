@@ -9,6 +9,8 @@ class TasksController < ApplicationController
      @users << User.find_by(id: i.user.id).email
     end
 
+    
+
   end
 
   def show
@@ -24,7 +26,10 @@ class TasksController < ApplicationController
 
   end
 
-
+private
+def task_params
+  params.require(:state).permit(:id, :task_id, :completed)
+end
 
 
 end

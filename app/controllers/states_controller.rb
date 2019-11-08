@@ -27,6 +27,11 @@ class StatesController < ApplicationController
     @task = Task.find(params[:task_id])
   end
 
+  def task_params
+    params.require(:state).permit(:user_id, :task_id, :completed)
+
+  end
+
 
 
 end

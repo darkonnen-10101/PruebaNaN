@@ -4,7 +4,7 @@
   </tr>
 
 <tbody>
-  <% @states.each do |state| %>
+  <% @states.reverse.each do |state| %>
   <tr>
     <td>  <%= @user.find_by(id: state.user_id).email %> </td>
   </tr>
@@ -20,7 +20,7 @@
   <th>Todos</th>
 </tr>
 <tbody>
-<% @state.each do |state| %>
+<% @state.reverse.each do |state| %>
 <tr>
   <td>  <%= @user.find_by(id: state.user_id).email %> </td>
 </tr>
