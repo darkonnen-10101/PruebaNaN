@@ -4,11 +4,10 @@
       <% row.each do |task| %>
       <div class="col">
         <div class="card">
-          <% if State.find_by(user_id: current_user.id, task_id: task.id) != false && State.find_by(user_id: current_user.id, task_id: task.id) != nil %>
-
-          <%= image_tag task.url, class: "card-img-top img" %>
+          <% if user_signed_in? && State.find_by(user_id: current_user.id, task_id: task.id) != false && State.find_by(user_id: current_user.id, task_id: task.id) != nil %>
+            <%= image_tag task.url, class: "card-img-top img" %>
           <% else %>
-          <%= image_tag task.url, class: "card-img-top" %>
+            <%= image_tag task.url, class: "card-img-top" %>
           <% end %>
 
           <div class="body text-center py-2">
