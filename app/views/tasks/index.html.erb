@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <% @tasks.each_slice(3) do |row| %>
+      <% row.each do |task| %>
+      <div class="col">
+        <div class="card">
+          <%= image_tag task.url, class: 'card-img-top' %>
+          <div class="body">
+            <h5>  <%= task.name %> </h5>
+            <%= link_to "Comprar", task_states_path(task), class: "btn btn-success", method: :post %>
+          </div>
+        </div>
+      </div>
+    <%  end  %>
+    <div class="w-100" style="margin-top:20px;">
+
+    </div>
+    <%  end  %>
+  </div>
+</div>
