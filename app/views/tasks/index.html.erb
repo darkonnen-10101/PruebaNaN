@@ -5,9 +5,14 @@
       <div class="col">
         <div class="card">
           <%= image_tag task.url, class: 'card-img-top' %>
-          <div class="body">
+          <div class="body text-center py-2">
             <h5>  <%= task.name %> </h5>
-            <%= link_to "Comprar", task_states_path(task), class: "btn btn-success", method: :post %>
+            <%= link_to 'Listado', task_path(task.id), class: "btn btn-info" %>
+            <% if user_signed_in? && State.find_by(user_id: current_user.id, task_id: task.id) != false && State.find_by(user_id: current_user.id, task_id: task.id) != nil %>
+              <%= link_to "Cancelar", task_state_path(task, current_user), class: "btn btn-danger", method: :delete %>
+            <% else %>
+              <%= link_to "Completar", task_states_path(task), class: "btn btn-success", method: :post %>
+            <% end %>
           </div>
         </div>
       </div>

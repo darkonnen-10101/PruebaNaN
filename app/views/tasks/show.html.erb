@@ -1,0 +1,30 @@
+<table class="table">
+  <tr>
+    <th>Primeros 5</th>
+  </tr>
+
+<tbody>
+  <% @states.each do |state| %>
+  <tr>
+    <td>  <%= @user.find_by(id: state.user_id).email %> </td>
+  </tr>
+  <% end %>
+
+
+</tbody>
+</table>
+
+<table class="table">
+
+<tr>
+  <th>Todos</th>
+</tr>
+<tbody>
+<% @state.each do |state| %>
+<tr>
+  <td>  <%= @user.find_by(id: state.user_id).email %> </td>
+</tr>
+<% end %>
+
+</tbody>
+</table>
